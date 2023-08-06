@@ -1,8 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { Cocktail } from 'src/app/shared/enteties';
 import { CartService, CocktailService } from '@facades';
@@ -12,14 +10,7 @@ import { Subject } from 'rxjs';
 @Component({
   selector: 'app-cocktails',
   standalone: true,
-  imports: [
-    CommonModule,
-    MatCardModule,
-    MatButtonModule,
-    MatIconModule,
-    MatDividerModule,
-    CocktailComponent,
-  ],
+  imports: [CommonModule, MatButtonModule, MatIconModule, CocktailComponent],
   templateUrl: './cocktails.component.html',
 })
 export class CocktailsComponent implements OnInit, OnDestroy {
@@ -33,7 +24,6 @@ export class CocktailsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this._cocktailService.updateCocktails();
-
   }
 
   ngOnDestroy(): void {

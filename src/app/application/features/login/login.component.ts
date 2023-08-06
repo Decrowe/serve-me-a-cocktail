@@ -1,8 +1,6 @@
 import { Component, OnDestroy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -23,8 +21,6 @@ import { Role, Roles, User } from 'src/app/shared/enteties';
   imports: [
     CommonModule,
     MatCardModule,
-    MatDividerModule,
-    MatProgressBarModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,

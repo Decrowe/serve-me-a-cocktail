@@ -1,6 +1,6 @@
-<div class="h-full flex flex-col gap-4">
-  <div class="w-fit m-auto text-white text-2xl">{{cocktailSource$ | async}}</div>
-  <div class="h-full min-w-[250px] w-fit m-auto flex flex-col gap-4 overflow-scroll  no-scrollbar
+<div class="h-full w-full flex flex-col gap-4 items-center">
+  <span class="text-white text-2xl">{{cocktailSource$ | async}}</span>
+  <div class=" min-w-[300px] flex flex-col gap-4 overflow-scroll  no-scrollbar
   ">
     
     <app-cocktail *ngFor="let cocktail of cocktails$ | async" [cocktail]="cocktail" [isFavorized]="isFavorized(cocktail)"
