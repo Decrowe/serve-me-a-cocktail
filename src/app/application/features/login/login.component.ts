@@ -15,7 +15,7 @@ import {
 import { MatButtonModule } from '@angular/material/button';
 import { Subject } from 'rxjs';
 import { UserService } from '@facades';
-import { Role, Roles } from 'src/app/shared/enteties';
+import { Role, Roles, User } from 'src/app/shared/enteties';
 
 @Component({
   selector: 'app-login',
@@ -32,7 +32,6 @@ import { Role, Roles } from 'src/app/shared/enteties';
     ReactiveFormsModule,
   ],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnDestroy {
   private readonly _destroyed = new Subject<void>();
@@ -59,6 +58,6 @@ export class LoginComponent implements OnDestroy {
   }
 
   public login(){
-    if (this.loginGroup.valid) this._userService.login(this.loginGroup.value)
+    if (this.loginGroup.valid) this._userService.login({name: this.usernameControl.value, role: this.roleControl.value} as User)
   }
 }

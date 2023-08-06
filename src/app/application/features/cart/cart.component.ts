@@ -19,7 +19,6 @@ import { CartService } from '../../facades/cart.service';
   standalone: true,
   imports: [CommonModule, MatBottomSheetModule, MatButtonModule, MatIconModule, MatBadgeModule],
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent {
   private readonly _bottomSheet = inject(MatBottomSheet);

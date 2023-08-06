@@ -18,7 +18,6 @@ import { MatBadgeModule } from '@angular/material/badge';
   standalone: true,
   imports: [CommonModule, MatIconModule, MatButtonModule,MatDialogModule, MatBadgeModule],
   templateUrl: './bottom-sheet.component.html',
-  styleUrls: ['./bottom-sheet.component.scss'],
 })
 export class BottomSheetComponent implements OnInit, OnDestroy {
   

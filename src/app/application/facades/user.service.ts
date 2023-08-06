@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { Cocktail, Roles } from 'src/app/shared/enteties';
+import { Roles } from 'src/app/shared/enteties';
 
 import { BehaviorSubject } from 'rxjs';
 import { User } from 'src/app/shared/enteties/user';
@@ -9,6 +9,7 @@ import { User } from 'src/app/shared/enteties/user';
   providedIn: 'root',
 })
 export class UserService {
+
   private readonly _router = inject(Router);
 
   private readonly _user = new BehaviorSubject<User>({
@@ -17,8 +18,7 @@ export class UserService {
   });
   public readonly user$ = this._user.asObservable();
 
-  private readonly _favorites = new BehaviorSubject<Array<Cocktail>>([]);
-  public readonly favorites$ = this._favorites.asObservable();
+
 
   public get currentUser() {
     return this._user.getValue();
@@ -35,8 +35,6 @@ export class UserService {
     this.navigate();
   }
 
-  public addCocktailToFavorites(cocktail: Cocktail): void {
-    if (this._favorites.value.includes(cocktail)) return;
-    this._favorites.next([...this._favorites.value, cocktail]);
-  }
+
+
 }

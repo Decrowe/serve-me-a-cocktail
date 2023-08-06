@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'light-brown': '#DAAD60',
+        'caramel': '#DAAD60',
       },
     },
   },

@@ -24,7 +24,6 @@ export interface CommentDialogData {
     MatDialogModule,
     ReactiveFormsModule,
   ],  templateUrl: './comment-dialog.component.html',
-  styleUrls: ['./comment-dialog.component.scss'],
 })
 export class CommentDialogComponent {
   @Input() placeholder = "e.g.: More Booze!"

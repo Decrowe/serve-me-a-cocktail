@@ -1,11 +1,12 @@
-<div class="solid max-w-lg rounded-r-2xl border-l-8 border-black bg-yellow-600/75 ">
+<div class="solid max-w-lg rounded-r-2xl border-l-8 border-caramel bg-yellow-600/75 p-2">
   <div class="ml-4">
     <p class="font-normal text-white text-xl">{{cocktail.name}}</p>
     <p class="text-white">{{cocktail.description}}</p>
   </div>
-  <div class="p-2 w-full flex justify-end">
-    <div class=" bg-white w-fit border-solid rounded-xl">
-      <button mat-icon-button (click)="onFavorized()"><mat-icon class="text-red-600">favorite</mat-icon></button>
+  <div class=" w-full flex justify-end">
+    <div class="bg-white w-fit border-solid rounded-xl">
+      <button mat-icon-button (click)="toggleFavorized()"><mat-icon
+          [ngClass]="{'text-red-600': isFavorized, 'text-gray-600' : !isFavorized} ">favorite</mat-icon></button>
       <button mat-icon-button (click)="onAdded()"><mat-icon>add</mat-icon></button>
     </div>
   </div>
