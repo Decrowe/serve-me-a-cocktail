@@ -13,7 +13,13 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {},
+    "paths": {
+      "@components": ["./src/app/shared/components/index.ts"],
+      "@enteties": ["./src/app/shared/enteties/index.ts"],
+      "@facades": ["./src/app/application/facades/index.ts"],
+      "@features": ["./src/app/application/features/index.ts"],
+      "@infrastructure": ["./src/app/infrastructure/index.ts"]
+    },
     "useDefineForClassFields": false,
     "forceConsistentCasingInFileNames": true,
     "strict": true,

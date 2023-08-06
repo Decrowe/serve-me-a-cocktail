@@ -1,0 +1,16 @@
+<div class="h-fit">
+  <h1 mat-dialog-title>{{data.wish.cocktail.name}}</h1>
+  <div mat-dialog-content>
+    <p>Add a note:</p>
+    <mat-form-field appearance="fill">
+      <input [formControl]="noteControl" matInput type="text" [placeholder]="placeholder">
+    </mat-form-field>
+  </div>
+
+  <div mat-dialog-actions align="end">
+    <span class=" bg-white w-fit border-solid rounded-xl">
+      <button mat-icon-button><mat-icon class="text-red-600">close</mat-icon></button>
+      <button mat-icon-button (click)="onSubmit()" cdkFocusInitial><mat-icon>done</mat-icon></button>
+    </span>
+  </div>
+</div>

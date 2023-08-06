@@ -1,0 +1,4 @@
+<button mat-icon-button [disabled]="(ordersExist$ | async) === false" (click)="openCart()">
+    <mat-icon [matBadge]="cocktailWishCount$ | async" [matBadgeDisabled]="(ordersExist$ | async) === false"
+        class="text-white">{{(ordersExist$ | async ) ? "local_bar" : "no_drinks"}} </mat-icon>
+</button>

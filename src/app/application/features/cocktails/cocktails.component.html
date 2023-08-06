@@ -1,0 +1,5 @@
+<div class="h-full w-fit m-auto flex flex-col gap-4 overflow-scroll border-b-2 border-solid border-white no-scrollbar
+">
+  <app-cocktail *ngFor="let cocktail of cocktails$ | async" [cocktail]="cocktail" (favorized)="addToFavorites(cocktail)"
+    (added)="addCocktailToCart(cocktail)"></app-cocktail>
+</div>
