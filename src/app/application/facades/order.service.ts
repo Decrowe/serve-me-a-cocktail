@@ -7,6 +7,7 @@ import { OrderDataService as OrderDataService } from 'src/app/infrastructure/ord
   providedIn: 'root',
 })
 export class OrderService {
+  
   private readonly _orderDataService = inject(OrderDataService);
 
   private readonly _orders = new BehaviorSubject<Array<Order>>([]);
@@ -17,5 +18,13 @@ export class OrderService {
       .getOrders()
       .pipe(first())
       .subscribe((orders) => this._orders.next(orders));
+  }
+
+  public orderRejected(order: Order) {
+    this._orderDataService.orderRejected(order)
+  }
+  
+  public orderDone(order: Order) {
+    this._orderDataService.orderDone(order)
   }
 }
