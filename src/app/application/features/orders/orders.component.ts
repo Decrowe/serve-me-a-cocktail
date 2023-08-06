@@ -17,7 +17,6 @@ import { OrderService } from '@facades';
     MatDividerModule,
   ],
   templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.scss'],
 })
 export class OrdersComponent implements OnInit {
   private readonly _orderService = inject(OrderService);

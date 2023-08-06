@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
-import { CartComponent } from '@features';
+import { CartComponent, TriggerCocktailListComponent, TriggerFavoritesListComponent } from '@features';
 
 @Component({
   selector: 'app-app-footer',
@@ -14,8 +14,9 @@ import { CartComponent } from '@features';
     MatIconModule,
     MatBadgeModule,
     CartComponent,
+    TriggerFavoritesListComponent,
+    TriggerCocktailListComponent,
   ],
   templateUrl: './app-footer.component.html',
-  styleUrls: ['./app-footer.component.scss'],
 })
 export class AppFooterComponent {}

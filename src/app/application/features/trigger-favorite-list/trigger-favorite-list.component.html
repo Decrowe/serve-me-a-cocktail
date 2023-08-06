@@ -1,0 +1,4 @@
+<button mat-icon-button (click)="loadFavorites()" [disabled]="(favoritesExist$ | async) === false">
+    <mat-icon [matBadge]="favoritesCount$ | async" [matBadgeDisabled]="(favoritesExist$ | async) === false"
+        class="text-white">{{(favoritesExist$ | async ) ? "favorite" : "heart_broken"}} </mat-icon>
+</button>

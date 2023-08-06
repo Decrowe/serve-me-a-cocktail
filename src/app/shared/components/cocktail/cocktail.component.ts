@@ -18,12 +18,14 @@ export class CocktailComponent {
     description: this.NOT_SET,
     name: this.NOT_SET,
   };
+  @Input() isFavorized = false;
 
-  @Output() favorized = new EventEmitter<void>()
+  @Output() favorized = new EventEmitter<boolean>()
   @Output() added = new EventEmitter<void>()
 
-  public onFavorized() {
-    this.favorized.emit()
+  public toggleFavorized() {
+    this.isFavorized = !this.isFavorized;
+    this.favorized.emit(this.isFavorized)
   }
 
   public onAdded() {

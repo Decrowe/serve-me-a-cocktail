@@ -1,5 +1,9 @@
-<div class="h-full w-fit m-auto flex flex-col gap-4 overflow-scroll border-b-2 border-solid border-white no-scrollbar
-">
-  <app-cocktail *ngFor="let cocktail of cocktails$ | async" [cocktail]="cocktail" (favorized)="addToFavorites(cocktail)"
-    (added)="addCocktailToCart(cocktail)"></app-cocktail>
+<div class="h-full">
+  <div class="w-fit m-auto text-white text-2xl">{{cocktailSource$ | async}}</div>
+  <div class="min-w-[250px]  w-fit m-auto flex flex-col gap-4 overflow-scroll  no-scrollbar
+  ">
+    <div></div>
+    <app-cocktail *ngFor="let cocktail of cocktails$ | async" [cocktail]="cocktail" [isFavorized]="isFavorized(cocktail)"
+      (favorized)="onFavorizedToggle(cocktail, $event)" (added)="addCocktailToCart(cocktail)"></app-cocktail>
+  </div>
 </div>

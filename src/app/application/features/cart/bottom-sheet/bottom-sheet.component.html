@@ -1,7 +1,7 @@
 <div class="flex flex-col">
     <div class="text-xl font-light">Wishes</div>
     <div *ngFor="let wish of wishes$ | async; let i = index" class="flex justify-between items-center">
-        <span class="border-l-orange-700 border-l pl-1">{{i + 1}}: {{ wish.cocktail.name}}</span>
+        <span class="border-l-caramel border-l pl-1">{{i + 1}}: {{ wish.cocktail.name}}</span>
         <span>
             <button mat-icon-button (click)="onDelete(wish)">
                 <mat-icon class="text-red-600">delete</mat-icon>
