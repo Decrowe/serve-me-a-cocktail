@@ -1,20 +1,10 @@
-<div class=" flex p-4 gap-4 flex-col-reverse overflow-scroll">
-    <mat-card *ngFor="let order of orders$ | async" class="flex-grow-0 flex-shrink-0 basis-auto h-fit">
-        <mat-card-header>
-            <mat-card-title>{{order.cocktail.name}}</mat-card-title>
-        </mat-card-header>
+<div class="h-full flex flex-col gap-4">
+    <div class="w-fit m-auto text-white text-2xl">Orders</div>
+    <div class="min-w-[250px] w-fit m-auto flex flex-col gap-4 overflow-scroll  no-scrollbar
+    ">
 
-        <mat-card-content>
-            <p>Ordered by: {{order.cocktail}}</p>
-            <p *ngIf="order.note">Notes: {{order.note}}</p>
+        <app-order *ngFor="let order of orders$ | async" [order]="order" (done)="onOrderDone(order)"
+            (rejected)="onOrderRejected(order)"></app-order>
 
-        </mat-card-content>
-      
-        <mat-card-footer>
-            <mat-card-actions class="flex justify-end">
-                <button mat-icon-button color="warn"><mat-icon>close</mat-icon></button>
-                <button mat-icon-button color="warn"><mat-icon>done</mat-icon></button>
-            </mat-card-actions>
-        </mat-card-footer>
-    </mat-card>
+    </div>
 </div>

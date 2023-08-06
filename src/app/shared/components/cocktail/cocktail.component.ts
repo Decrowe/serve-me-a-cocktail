@@ -9,7 +9,6 @@ import { MatIconModule } from '@angular/material/icon';
   standalone: true,
   imports: [CommonModule, MatButtonModule, MatIconModule],
   templateUrl: './cocktail.component.html',
-  styleUrls: ['./cocktail.component.scss'],
 })
 export class CocktailComponent {
   private readonly NOT_SET = 'not-set';

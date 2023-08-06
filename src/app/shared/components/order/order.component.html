@@ -1,0 +1,16 @@
+<div class="solid max-w-lg rounded-r-2xl border-l-8 border-caramel bg-yellow-600/75 p-2 flex justify-between gap-4">
+  <div>
+    <p class="font-normal text-white text-xl">{{order.cocktail.name}}</p>
+    <p class="text-white">{{order.user.name}}</p>
+    <div *ngIf="order.note">
+      <p class="text-white">Note:</p>
+      <p class="text-white">{{order.note}}</p>
+    </div>
+  </div>
+
+  <div class="bg-white w-fit border-solid rounded flex flex-col">
+    <button mat-icon-button (click)="onRejected()"><mat-icon class="text-red-500">close</mat-icon></button>
+    <button mat-icon-button (click)="onDone()"><mat-icon class="text-green-500">done
+      </mat-icon></button>
+  </div>
+</div>
