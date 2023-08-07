@@ -6,7 +6,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { CartComponent, TriggerCocktailListComponent, TriggerFavoritesListComponent } from '@features';
 
 @Component({
-  selector: 'app-app-footer',
+  selector: 'app-footer',
   standalone: true,
   imports: [
     CommonModule,
@@ -17,6 +17,6 @@ import { CartComponent, TriggerCocktailListComponent, TriggerFavoritesListCompon
     TriggerFavoritesListComponent,
     TriggerCocktailListComponent,
   ],
-  templateUrl: './app-footer.component.html',
+  templateUrl: './footer.component.html',
 })
-export class AppFooterComponent {}
+export class FooterComponent {}
