@@ -11,6 +11,6 @@ export const MOCK_ORDERS: Array<Order> = Array(5)
         name: MOCK_COCKTAILS[index % 3].name,
         description: MOCK_COCKTAILS[index % 3].description,
       } as Cocktail,
-      user: { name: 'Lukas', role: Roles.customer },
+      user: { name: 'Lukas', role: Roles.guest },
     } as Order;
   });

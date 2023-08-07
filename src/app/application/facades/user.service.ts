@@ -14,7 +14,7 @@ export class UserService {
 
   private readonly _user = new BehaviorSubject<User>({
     name: 'Guest',
-    role: Roles.customer,
+    role: Roles.guest,
   });
   public readonly user$ = this._user.asObservable();
 
