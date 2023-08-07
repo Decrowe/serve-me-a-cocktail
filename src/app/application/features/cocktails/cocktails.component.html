@@ -1,5 +1,5 @@
 <div class="h-full flex flex-col">
-  <div class="w-full flex flex-col gap-4 items-center overflow-scroll p-4">
+  <div class="w-full flex flex-col gap-4 items-center overflow-scroll p-4 grow">
     <span class="text-white text-2xl">{{cocktailSource$ | async}}</span>
     <div class=" min-w-[300px] flex flex-col gap-4 overflow-scroll  no-scrollbar
     ">
@@ -9,18 +9,18 @@
   
     </div>
   </div>
-  <div class="basis-14 shrink-0 bg-gray-900 flex justify-around grow">
+  <div class="basis-14 shrink-0 bg-gray-900 flex justify-around items-center">
   
-    <div class="flex-1 flex justify-center items-center">
+    <div class="flex-1 flex justify-center">
         <app-trigger-favorites-list></app-trigger-favorites-list>
         <app-trigger-cocktail-list></app-trigger-cocktail-list>
     </div>
-    <div class="flex-1 flex justify-center items-center">
-        <button mat-raised-button aria-label="Example icon button with a home icon">
+    <div class="flex-1 flex justify-center">
+        <button mat-raised-button>
             Order Now
         </button>
     </div>
-    <div class="flex-1 flex justify-center items-center">
+    <div class="flex-1 flex justify-center">
         <app-cart></app-cart>
     </div>
   </div>
