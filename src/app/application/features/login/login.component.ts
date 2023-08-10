@@ -42,7 +42,7 @@ export class LoginComponent implements OnDestroy {
   constructor() {
     this.usernameControl = new FormControl();
     this.usernameControl.addValidators(Validators.required);
- 
+
     this.roleControl = new FormControl();
     this.roleControl.addValidators(Validators.required);
 
@@ -53,7 +53,11 @@ export class LoginComponent implements OnDestroy {
     this._destroyed.complete();
   }
 
-  public login(){
-    if (this.loginGroup.valid) this._userService.login({name: this.usernameControl.value, role: this.roleControl.value} as User)
+  public login() {
+    if (this.loginGroup.valid)
+      this._userService.login({
+        name: this.usernameControl.value,
+        role: this.roleControl.value,
+      } as User);
   }
 }

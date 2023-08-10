@@ -16,6 +16,14 @@ export const appRoutes: Routes = [
     loadComponent: () =>
       import('./application').then((m) => m.CocktailsComponent),
     canActivate: [LoggedInGuard],
+    children: [
+      {
+        path: 'edit',
+        loadComponent: () =>
+          import('./application').then((m) => m.CocktailsComponent),
+        canActivate: [LoggedInGuard, BartenderGuard],
+      },
+    ],
   },
   { path: '**', redirectTo: 'login' },
 ];
