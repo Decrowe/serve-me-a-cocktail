@@ -1,10 +1,18 @@
 <div class="h-full flex flex-col gap-4">
-    <div class="w-fit m-auto text-white text-2xl">Orders</div>
-    <div class="min-w-[250px] w-fit m-auto flex flex-col gap-4 overflow-scroll  no-scrollbar
+    <div class="text-center text-white text-2xl">Orders</div>
+    <div class="w-full flex flex-col-reverse gap-4 overflow-scroll  no-scrollbar items-center grow
     ">
 
         <app-order *ngFor="let order of orders$ | async" [order]="order" (done)="onOrderDone(order)"
             (rejected)="onOrderRejected(order)"></app-order>
 
     </div>
+    <div class="basis-14 shrink-0 bg-gray-900 flex justify-around items-center">
+  
+        <div class="flex-1 flex justify-center">
+            <button mat-icon-button>
+                <mat-icon class="text-white">local_bar</mat-icon>
+            </button>
+        </div>
+      </div>
 </div>

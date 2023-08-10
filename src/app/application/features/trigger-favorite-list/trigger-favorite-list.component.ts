@@ -1,11 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatBadgeModule } from '@angular/material/badge';
-import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { Cocktail } from '@enteties';
-import { CocktailComponent } from '@components';
 import { CocktailService } from '@facades';
 import { map } from 'rxjs';
 
@@ -14,11 +12,9 @@ import { map } from 'rxjs';
   standalone: true,
   imports: [
     CommonModule,
-    MatBottomSheetModule,
     MatButtonModule,
     MatIconModule,
     MatBadgeModule,
-    CocktailComponent,  
   ],
   templateUrl: './trigger-favorite-list.component.html',
 })

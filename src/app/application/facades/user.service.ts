@@ -12,10 +12,7 @@ export class UserService {
 
   private readonly _router = inject(Router);
 
-  private readonly _user = new BehaviorSubject<User>({
-    name: 'Guest',
-    role: Roles.customer,
-  });
+  private readonly _user = new BehaviorSubject<User | undefined>(undefined);
   public readonly user$ = this._user.asObservable();
 
 
@@ -26,13 +23,16 @@ export class UserService {
 
   private navigate(): void {
     this._router.navigateByUrl(
-      this._user.value.role === Roles.bartender ? 'orders' : 'cocktails'
+      this._user.value?.role === Roles.bartender ? 'orders' : 'cocktails'
     );
   }
 
   public login(user: User): void {
     this._user.next(user);
-    this.navigate();
+  }
+
+  public logout(): void {
+    this._user.next(undefined);
   }
 
 

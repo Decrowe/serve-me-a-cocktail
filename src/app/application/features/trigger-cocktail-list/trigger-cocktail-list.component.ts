@@ -1,29 +1,25 @@
-import { Component, Inject, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatBadgeModule } from '@angular/material/badge';
-import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { CocktailComponent } from '@components';
 import { CocktailService } from '../../facades/cocktail.service';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-trigger-cocktail-list',
   standalone: true,
-  imports: [
-    CommonModule,
-    MatBottomSheetModule,
-    MatButtonModule,
-    MatIconModule,
-    MatBadgeModule,
-    CocktailComponent,  
-  ],
+  imports: [CommonModule, MatButtonModule, MatIconModule],
   templateUrl: './trigger-cocktail-list.component.html',
 })
 export class TriggerCocktailListComponent {
-  private readonly _cocktailService = inject(CocktailService)
-  
+  private readonly _cocktailService = inject(CocktailService);
+
+  public readonly isCocktailSourceAll$ =
+    this._cocktailService.cocktailSource$.pipe(
+      map((source) => source === 'All')
+    );
+
   public loadAllCocktails(): void {
-    this._cocktailService.setCocktailSource('All')
+    this._cocktailService.setCocktailSource('All');
   }
 }

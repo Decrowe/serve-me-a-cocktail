@@ -1,25 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { Cocktail } from 'src/app/shared/enteties';
 import { CartService, CocktailService } from '@facades';
 import { CocktailComponent } from '@components';
 import { Subject } from 'rxjs';
+import { TriggerCocktailListComponent } from '../trigger-cocktail-list/trigger-cocktail-list.component';
+import { TriggerFavoritesListComponent } from '../trigger-favorite-list/trigger-favorite-list.component';
+import { CartComponent } from '../cart/cart.component';
 
 @Component({
   selector: 'app-cocktails',
   standalone: true,
-  imports: [
-    CommonModule,
-    MatCardModule,
-    MatButtonModule,
-    MatIconModule,
-    MatDividerModule,
-    CocktailComponent,
-  ],
+  imports: [CommonModule, MatButtonModule, MatIconModule, CocktailComponent, TriggerCocktailListComponent,TriggerFavoritesListComponent, CartComponent],
   templateUrl: './cocktails.component.html',
 })
 export class CocktailsComponent implements OnInit, OnDestroy {
@@ -33,7 +27,6 @@ export class CocktailsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this._cocktailService.updateCocktails();
-
   }
 
   ngOnDestroy(): void {
@@ -60,6 +53,6 @@ export class CocktailsComponent implements OnInit, OnDestroy {
   }
 
   public removeFromFavorites(cocktail: Cocktail): void {
-    this._cocktailService.removeCocktailFromFavorites(cocktail);
+    this._cocktailService.deleteCocktailFromFavorites(cocktail);
   }
 }
