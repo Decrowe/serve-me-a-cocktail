@@ -47,11 +47,15 @@ export class CocktailService {
     this._favorites.next([...this._favorites.value, cocktail]);
   }
 
-  public removeCocktailFromFavorites(cocktail: Cocktail) {
+  public deleteCocktailFromFavorites(cocktail: Cocktail) : void {
     const favorites = this._favorites.value;
     const index = favorites.indexOf(cocktail);
     favorites.splice(index,1);
     this._favorites.next(favorites);
+  }
+
+  public deleteFavorites(): void {
+    this._favorites.next([])
   }
   
 }

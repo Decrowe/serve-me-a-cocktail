@@ -53,6 +53,6 @@ export class CocktailsComponent implements OnInit, OnDestroy {
   }
 
   public removeFromFavorites(cocktail: Cocktail): void {
-    this._cocktailService.removeCocktailFromFavorites(cocktail);
+    this._cocktailService.deleteCocktailFromFavorites(cocktail);
   }
 }
