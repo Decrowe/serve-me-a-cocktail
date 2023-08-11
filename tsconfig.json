@@ -18,7 +18,8 @@
       "@enteties": ["./src/app/shared/enteties/index.ts"],
       "@facades": ["./src/app/application/facades/index.ts"],
       "@features": ["./src/app/application/features/index.ts"],
-      "@infrastructure": ["./src/app/infrastructure/index.ts"]
+      "@infrastructure": ["./src/app/infrastructure/index.ts"],
+      "@services": ["./src/app/shared/services/index.ts"]
     },
     "useDefineForClassFields": false,
     "forceConsistentCasingInFileNames": true,

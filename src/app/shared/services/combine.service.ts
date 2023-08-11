@@ -1,9 +1,8 @@
 import { Injectable, OnDestroy, inject } from '@angular/core';
 import { takeUntil, Subject } from 'rxjs';
-import { CocktailService } from './application/facades/cocktail.service';
-import { UserService } from './application/facades/user.service';
+
 import { Roles, User } from '@enteties';
-import { APP_ROUTES, NavigationService } from '@facades';
+import { APP_ROUTES, CocktailService, NavigationService, UserService } from '@facades';
 
 @Injectable({
   providedIn: 'root',

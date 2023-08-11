@@ -1,0 +1,12 @@
+<div class="flex flex-col h-full">
+    <div class="basis-1/12 shrink-0 bg-gray-900">
+        <ng-template [cdkPortalOutlet]="headerPortal$ | async"></ng-template>
+    </div>
+    <div class="grow bg-orange-900 overflow-scroll no-scrollbar items-center">
+
+        <ng-content select="[app-content]"></ng-content>
+    </div>
+    <div class="basis-fit shrink-0 bg-gray-900 ">
+        <ng-template [cdkPortalOutlet]="footerPortal$ | async"></ng-template>
+    </div>
+</div>

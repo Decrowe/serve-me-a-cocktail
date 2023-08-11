@@ -2,17 +2,20 @@
     <div class="text-center text-white text-2xl">Orders</div>
     <div class="w-full flex flex-col-reverse gap-4 overflow-scroll  no-scrollbar items-center grow
     ">
-
         <app-order *ngFor="let order of orders$ | async" [order]="order" (done)="onOrderDone(order)"
             (rejected)="onOrderRejected(order)"></app-order>
 
     </div>
+</div>
+
+
+<ng-container *cdkPortal>
     <div class="basis-14 shrink-0 bg-gray-900 flex justify-around items-center">
-  
+
         <div class="flex-1 flex justify-center">
-            <button mat-icon-button>
+            <button mat-icon-button class="onEditCocktails()">
                 <mat-icon class="text-white">local_bar</mat-icon>
             </button>
         </div>
-      </div>
-</div>
+    </div>
+</ng-container>
