@@ -1,7 +1,7 @@
-<div class="h-full flex flex-col">
-  <div class="w-full flex flex-col gap-4 items-center overflow-scroll p-4 grow">
-    <span class="text-white text-2xl">{{cocktailSource$ | async}}</span>
-    <div class=" min-w-[300px] flex flex-col gap-4 overflow-scroll  no-scrollbar
+<div class="h-full flex flex-col items-center">
+  <span class="text-white text-2xl">{{cocktailSource$ | async}}</span>
+  <div class="w-full flex flex-col items-center gap-4 overflow-scroll no-scrollbar p-4 grow">
+    <div class=" min-w-[300px] flex flex-col gap-4 overflow-y-visible
     ">
 
       <app-cocktail *ngFor="let cocktail of cocktails$ | async" [cocktail]="cocktail"
@@ -14,7 +14,7 @@
 </div>
 
 
-<ng-container *cdkPortal>
+<ng-container #footer *cdkPortal>
   <div class="flex items-center h-[8vh]">
     <div class="flex-1 flex justify-center ">
       <app-trigger-favorites-list></app-trigger-favorites-list>
@@ -33,6 +33,6 @@
   </div>
 </ng-container>
 
-<ng-container *cdkPortal #test>
-  TEST
+<ng-container #headerLeft *cdkPortal>
+  
 </ng-container>

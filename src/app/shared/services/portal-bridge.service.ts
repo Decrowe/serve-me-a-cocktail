@@ -7,16 +7,21 @@ import {TemplatePortal} from '@angular/cdk/portal'
 })
 export class PortalBridgeService {
 
-  private readonly _headerPortal = new BehaviorSubject<TemplatePortal | undefined>(undefined);
-  public readonly headerPortal$ = this._headerPortal.asObservable();
-
-  public setHeaderPortal(portal: TemplatePortal) {
-    this._headerPortal.next(portal);
-  }
-
+  private readonly _headerPortalLeft = new BehaviorSubject<TemplatePortal | undefined>(undefined);
+  private readonly _headerPortalRight = new BehaviorSubject<TemplatePortal | undefined>(undefined);
   private readonly _footerPortal = new BehaviorSubject<TemplatePortal | undefined>(undefined);
+  
+  public readonly headerPortalLeft$ = this._headerPortalLeft.asObservable();
+  public readonly headerPortalRight$ = this._headerPortalRight.asObservable();
   public readonly footerPortal$ = this._footerPortal.asObservable();
 
+  public setHeaderPortalLeft(portal: TemplatePortal) {
+    this._headerPortalLeft.next(portal);
+  }
+  public setHeaderPortalRight(portal: TemplatePortal) {
+    this._headerPortalRight.next(portal);
+  }
+  
   public setFooterPortal(portal: TemplatePortal) {
     this._footerPortal.next(portal);
   }

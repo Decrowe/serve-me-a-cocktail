@@ -13,5 +13,6 @@ export class ScaffoldComponent {
   private readonly _portalBridge = inject(PortalBridgeService);
 
   public readonly footerPortal$ = this._portalBridge.footerPortal$;
-  public readonly headerPortal$ = this._portalBridge.headerPortal$;
+  public readonly headerPortalRight$ = this._portalBridge.headerPortalRight$;
+  public readonly headerPortalLeft$ = this._portalBridge.headerPortalLeft$;
 }

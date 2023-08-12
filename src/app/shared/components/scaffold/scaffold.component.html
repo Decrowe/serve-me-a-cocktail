@@ -1,8 +1,14 @@
 <div class="flex flex-col h-full">
-    <div class="basis-1/12 shrink-0 bg-gray-900">
-        <ng-template [cdkPortalOutlet]="headerPortal$ | async"></ng-template>
+    <div class="basis-fit shrink-0 bg-gray-900 flex justify-between items-center">
+        <div class="shrink-1 grow-1">
+            <ng-template [cdkPortalOutlet]="headerPortalLeft$ | async"></ng-template>
+        </div>
+        <div class="shrink-0 grow-1 text-white text-xl p-2">Serve Me A Cocktail</div>
+        <div class="shrink-1 grow-1">
+            <ng-template [cdkPortalOutlet]="headerPortalRight$ | async"></ng-template>
+        </div>
     </div>
-    <div class="grow bg-orange-900 overflow-scroll no-scrollbar items-center">
+    <div class="grow bg-[#000000cb] overflow-scroll no-scrollbar items-center">
 
         <ng-content select="[app-content]"></ng-content>
     </div>

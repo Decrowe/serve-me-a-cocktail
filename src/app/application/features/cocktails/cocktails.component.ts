@@ -12,7 +12,7 @@ import {
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { Cocktail } from 'src/app/shared/enteties';
-import { CartService, CocktailService } from '@facades';
+import { CartService, CocktailService, UserService } from '@facades';
 import { CocktailComponent } from '@components';
 import { Subject } from 'rxjs';
 import { TriggerCocktailListComponent } from '../trigger-cocktail-list/trigger-cocktail-list.component';
@@ -39,6 +39,7 @@ import { PortalBridgeService } from '@services';
 export class CocktailsComponent implements OnInit, AfterViewInit, OnDestroy {
   private readonly _cocktailService = inject(CocktailService);
   private readonly _cartService = inject(CartService);
+  private readonly _userService = inject(UserService);
   private readonly _portalBridge = inject(PortalBridgeService);
   private readonly _viewContainerRef = inject(ViewContainerRef);
 
@@ -69,7 +70,7 @@ export class CocktailsComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   public isFavorized(cocktail: Cocktail): boolean {
-    return this._cocktailService.isFavorized(cocktail);
+    return this._userService.isFavorized(cocktail);
   }
 
   public onFavorizedToggle(cocktail: Cocktail, favorized: boolean): void {
@@ -79,10 +80,10 @@ export class CocktailsComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   public addToFavorites(cocktail: Cocktail): void {
-    this._cocktailService.addCocktailToFavorites(cocktail);
+    this._userService.addCocktailToFavorites(cocktail);
   }
 
   public removeFromFavorites(cocktail: Cocktail): void {
-    this._cocktailService.deleteCocktailFromFavorites(cocktail);
+    this._userService.deleteCocktailFromFavorites(cocktail);
   }
 }
