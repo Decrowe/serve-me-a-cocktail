@@ -1,38 +1,25 @@
-<div class="h-full flex flex-col items-center">
-  <span class="text-white text-2xl">{{cocktailSource$ | async}}</span>
-  <div class="w-full flex flex-col items-center gap-4 overflow-scroll no-scrollbar p-4 grow">
-    <div class=" min-w-[300px] flex flex-col gap-4 overflow-y-visible
-    ">
-
-      <app-cocktail *ngFor="let cocktail of cocktails$ | async" [cocktail]="cocktail"
-        [isFavorized]="isFavorized(cocktail)" (favorized)="onFavorizedToggle(cocktail, $event)"
-        (added)="addCocktailToCart(cocktail)"></app-cocktail>
-
-    </div>
+<div class="h-full flex flex-col pt-4">
+  <div class=" text-center basis-[5%] text-white  text-2xl border-b border-b-accent-lite dark:border-b-accent-dark">{{cocktailSource$ | async}}</div>
+ 
+  <div
+    class="flex flex-col basis-[85%] self-center items-stretch overflow-scroll no-scrollbar p-4 gap-4  ">
+    <app-cocktail *ngFor="let cocktail of cocktails$ | async" [cocktail]="cocktail"
+      [isFavorized]="isFavorized(cocktail)" (favorized)="onFavorizedToggle(cocktail, $event)"
+      (added)="addCocktailToCart(cocktail)"></app-cocktail>
   </div>
 
-</div>
-
-
-<ng-container #footer *cdkPortal>
-  <div class="flex items-center h-[8vh]">
+  <div class="flex items-center self-stretch basis-[10%] border-t border-t-accent-lite dark:border-t-accent-dark">
     <div class="flex-1 flex justify-center ">
       <app-trigger-favorites-list></app-trigger-favorites-list>
       <app-trigger-cocktail-list></app-trigger-cocktail-list>
     </div>
-  
+
     <div class="flex-1 flex justify-center">
-      <button mat-raised-button>
-        Order Now
-      </button>
+      <app-button label="Order"></app-button>
     </div>
-    
+
     <div class="flex-1 flex justify-center">
       <app-cart></app-cart>
     </div>
   </div>
-</ng-container>
-
-<ng-container #headerLeft *cdkPortal>
-  
-</ng-container>
+</div>

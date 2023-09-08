@@ -1,6 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PortalBridgeService } from '@services';
 import { PortalModule } from '@angular/cdk/portal';
 
 @Component({
@@ -10,9 +9,4 @@ import { PortalModule } from '@angular/cdk/portal';
   templateUrl: './scaffold.component.html',
 })
 export class ScaffoldComponent {
-  private readonly _portalBridge = inject(PortalBridgeService);
-
-  public readonly footerPortal$ = this._portalBridge.footerPortal$;
-  public readonly headerPortalRight$ = this._portalBridge.headerPortalRight$;
-  public readonly headerPortalLeft$ = this._portalBridge.headerPortalLeft$;
 }

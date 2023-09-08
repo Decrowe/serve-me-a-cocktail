@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -6,7 +6,6 @@ import { APP_ROUTES, NavigationService, OrderService } from '@facades';
 import { OrderComponent } from '@components';
 import { Order } from '@enteties';
 import { CdkPortal, PortalModule } from '@angular/cdk/portal';
-import { PortalBridgeService } from '@services';
 
 @Component({
   selector: 'app-orders',
@@ -20,10 +19,9 @@ import { PortalBridgeService } from '@services';
   ],
   templateUrl: './orders.component.html',
 })
-export class OrdersComponent implements OnInit, AfterViewInit ,OnDestroy {
+export class OrdersComponent implements OnInit, OnDestroy {
   private readonly _orderService = inject(OrderService);
   private readonly _navi = inject(NavigationService);
-  private readonly _portalBridge = inject(PortalBridgeService);
 
   public readonly orders$ = this._orderService.orders$;
 
@@ -32,17 +30,11 @@ export class OrdersComponent implements OnInit, AfterViewInit ,OnDestroy {
 
   ngOnInit(): void {
     this._orderService.updateOrders();
-
-  }
-
-  ngAfterViewInit(): void {
-    this._portalBridge.setFooterPortal(this.footerPortalContent);
   }
 
   ngOnDestroy(): void {
     this.footerPortalContent.detach();
   }
-
 
   public onOrderRejected(order: Order) {
     this._orderService.orderDone(order);

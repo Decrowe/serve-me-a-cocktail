@@ -1,13 +1,15 @@
-<div class="solid max-w-lg rounded-r-2xl border-l-8 border-caramel bg-yellow-600/75 p-2">
-  <div class="ml-4">
-    <p class="font-normal text-white text-xl">{{cocktail.name}}</p>
-    <p class="text-white">{{cocktail.description}}</p>
-  </div>
-  <div class=" w-full flex justify-end">
-    <div class="bg-white w-fit border-solid rounded-xl">
-      <button mat-icon-button (click)="toggleFavorized()"><mat-icon
-          [ngClass]="{'text-red-600': isFavorized, 'text-gray-600' : !isFavorized} ">favorite</mat-icon></button>
-      <button mat-icon-button (click)="onAdded()"><mat-icon>add</mat-icon></button>
-    </div>
+<div class="flex flex-col max-w-[300px] m-1 rounded-xl border border-accent-lite dark:border-accent-dark  bg-neutral-lite dark:bg-neutral-dark">
+  <img class="w-full rounded-t-xl" *ngIf="imgSrc" [src]="imgSrc" alt="cocktail-image">
+  <div id="content" class="p-2   dark:text-white rounded-xl border border-accent-lite dark:border-accent-dark">
+      <p class="text-xl font-semibold">{{cocktail.name}}</p>
+      <p class="text-base font-normal">Ingredients</p>
+      <div class="flex flex-wrap my-2">
+          <span class="rounded-full text-xs bg-primary-lite dark:bg-primary-dark m-1 px-2 py-1" *ngFor="let ingredient of cocktail.ingredients">
+              {{ingredient}}
+          </span>
+      </div>
+      <div class=" w-[95%] m-auto mt-5 mb-2 border-t-2 border-white rounded"></div>
+      <div class="flex justify-center gap-4  mx-1 ">
+      </div>
   </div>
 </div>

@@ -1,30 +1,8 @@
-<!-- <div class="flex flex-col h-full">
-    <div class="basis-fit shrink-0 bg-gray-900 flex justify-between items-center">
-        <div class="shrink-1 grow-1">
-            <ng-template [cdkPortalOutlet]="headerPortalLeft$ | async"></ng-template>
-        </div>
-        <div class="shrink-0 grow-1 text-white text-xl p-2">Serve Me A Cocktail</div>
-        <div class="shrink-1 grow-1 justify-center">
-            <ng-template [cdkPortalOutlet]="headerPortalRight$ | async"></ng-template>
-        </div>
-    </div>
-    <div class="grow bg-[#000000cb] overflow-scroll no-scrollbar items-center">
-
-        <ng-content select="[app-content]"></ng-content>
-    </div>
-    <div class="basis-fit shrink-0 bg-gray-900 ">
-        <ng-template [cdkPortalOutlet]="footerPortal$ | async"></ng-template>
-    </div>
-</div> -->
-
-<div class="flex flex-col bg-default-lite dark:bg-default-dark h-full">
-    <div class="basis-[8%] grow-0 shrink-0 bg-primary-lite dark:bg-primary-dark">
+<div class="bg-default-lite dark:bg-default-dark h-full">
+    <div class="h-[8%] bg-neutral-lite dark:bg-neutral-dark">
         <ng-content select="[app-header]"></ng-content>
     </div>
-    <div class="p-4 grow overflow-y-scroll" >
-        <ng-content select="[app-content]"></ng-content>
-    </div>
-    <div class="grow-0 shrink-0 bg-primary-lite dark:bg-primary-dark">
-        <ng-content  select="[app-footer]"></ng-content>
+    <div class="h-[92%] overflow-clip" >
+        <ng-content class="h-full" select="[app-content]"></ng-content>
     </div>
 </div>

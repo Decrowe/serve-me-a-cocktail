@@ -13,9 +13,6 @@ import {
   NavigationService,
   UserService,
 } from '@facades';
-import { PortalBridgeService } from './portal-bridge.service';
-import { LogoutComponent } from 'src/app/application/features/logout/logout.component';
-import { ComponentPortal } from '@angular/cdk/portal';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +21,6 @@ export class CombineService {
   private readonly _userService = inject(UserService);
   private readonly _cocktailService = inject(CocktailService);
   private readonly _navi = inject(NavigationService);
-  private readonly _portalBridge = inject(PortalBridgeService);
 
   constructor() {
     this.initUserListener();
@@ -35,7 +31,6 @@ export class CombineService {
   private initUserListener() {
     this._userService.user$.subscribe((user: User | undefined) => {
       this.navigate(user);
-      this._portalBridge.setHeaderPortalRight(user ?  new ComponentPortal(LogoutComponent) : undefined)
     });
   }
 
