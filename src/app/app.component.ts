@@ -11,4 +11,5 @@ import { CombineService } from '@services';
 })
 export class AppComponent {
   private readonly _combiner = inject(CombineService);
+
 }

@@ -8,15 +8,15 @@
       "executor": "@nx/cypress:cypress",
       "options": {
         "cypressConfig": "e2e/cypress.config.ts",
-        "devServerTarget": ".-serve-me-a-cocktail:serve:development",
+        "devServerTarget": "serve-me-a-cocktail:serve:development",
         "testingType": "e2e"
       },
       "configurations": {
         "production": {
-          "devServerTarget": ".-serve-me-a-cocktail:serve:production"
+          "devServerTarget": "serve-me-a-cocktail:serve:production"
         },
         "ci": {
-          "devServerTarget": ".-serve-me-a-cocktail:serve-static"
+          "devServerTarget": "serve-me-a-cocktail:serve-static"
         }
       }
     },
@@ -29,5 +29,5 @@
     }
   },
   "tags": [],
-  "implicitDependencies": [".-serve-me-a-cocktail"]
+  "implicitDependencies": ["serve-me-a-cocktail"]
 }

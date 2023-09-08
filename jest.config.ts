@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-  displayName: '.-serve-me-a-cocktail',
+  displayName: 'serve-me-a-cocktail',
   preset: './jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: './coverage/.-serve-me-a-cocktail',
+  coverageDirectory: './coverage/serve-me-a-cocktail',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

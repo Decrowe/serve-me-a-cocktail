@@ -1,4 +1,4 @@
-import { Component, OnDestroy, inject } from '@angular/core';
+import { Component, OnDestroy, inject, isDevMode } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -14,6 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { Subject } from 'rxjs';
 import { UserService } from '@facades';
 import { Role, Roles, User } from 'src/app/shared/enteties';
+import { ButtonComponent } from '@components';
 
 @Component({
   selector: 'app-login',
@@ -26,6 +27,7 @@ import { Role, Roles, User } from 'src/app/shared/enteties';
     MatSelectModule,
     MatButtonModule,
     ReactiveFormsModule,
+    ButtonComponent
   ],
   templateUrl: './login.component.html',
 })
@@ -33,14 +35,13 @@ export class LoginComponent implements OnDestroy {
   private readonly _destroyed = new Subject<void>();
   private readonly _userService = inject(UserService);
 
-  public readonly usernameControl: FormControl<string>;
-  public readonly roleControl: FormControl<Role>;
+  public readonly usernameControl = new FormControl<string>(isDevMode() ? "DEV" : "");
+  public readonly roleControl = new FormControl<Role>(Roles.guest);
   public readonly roles = Roles;
 
   public readonly loginGroup: FormGroup;
 
   constructor() {
-    this.usernameControl = new FormControl();
     this.usernameControl.addValidators(Validators.required);
 
     this.roleControl = new FormControl();

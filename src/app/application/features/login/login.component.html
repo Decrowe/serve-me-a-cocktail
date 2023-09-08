@@ -1,5 +1,5 @@
-<div class="h-full w-fit m-auto flex flex-col justify-center">
-    <mat-card>
+<div class="h-full w-fit m-auto">
+    <mat-card class="flex flex-col items-center">
         <mat-card-header>
             <mat-card-title>Login</mat-card-title>
             <mat-card-subtitle>Enter your name and your role</mat-card-subtitle>
@@ -21,8 +21,9 @@
             
     
         </mat-card-content>
-        <mat-card-actions class="flex w-full justify-center">
-            <button mat-raised-button color="primary" (click)="login()">Login</button>
+        <mat-card-actions>
+            <app-button (clicked)="login()" [label]="'Login'"></app-button>
         </mat-card-actions>
+        
     </mat-card>
 </div>
