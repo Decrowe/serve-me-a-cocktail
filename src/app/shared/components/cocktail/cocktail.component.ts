@@ -16,6 +16,7 @@ export class CocktailComponent {
   private readonly NOT_SET = 'not-set';
   @Input() imgSrc : string | undefined = undefined ;
   @Input() cocktail: Cocktail = {
+    id: this.NOT_SET,
     name: this.NOT_SET,
     description: this.NOT_SET,
     ingredients: []

@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { BehaviorSubject, first } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { Cocktail } from 'src/app/shared/enteties/cocktail';
 import { CocktailDataService } from 'src/app/infrastructure/cocktail.data.service';
 import { CockatilSource } from '@enteties';
@@ -20,7 +20,7 @@ export class CocktailService {
   public updateCocktails(): void {
     this._cocktailDataService
       .getCocktails()
-      .pipe(first())
+      // .pipe(first((value: Array<Cocktail>)=> !!value))
       .subscribe((cocktails) => this._cocktails.next(cocktails));
   }
   public setCocktailSource(source : CockatilSource): void {

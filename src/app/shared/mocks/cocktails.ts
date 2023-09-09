@@ -1,37 +1,11 @@
-import { Cocktail } from '../enteties/cocktail';
+import { faker } from '@faker-js/faker';
 
-export const MOCK_COCKTAILS: Array<Cocktail> = [
-  {
-    name: 'Pina Colada',
-    ingredients: ["White Rum","Brown Rum", "Pineapple Juice", "Creme of Coconut"],
-    description: 'A tropical rum cocktail',
-  },
-  {
-    name: 'Long Island Icetea',
-    ingredients: ["Rum", "Vodka","Gin","Tripple Sec","Tequila", "Orange Juice", "Cola"],
-    description:
-      'Strong cocktail with different booze and topped with Cola',
-  },
-  {
-    name: 'Gin Tonic',
-    ingredients: ["Gin", "Tonic Water"],
-    description: 'Gin + Tonic. Every combination tastes differently',
-  },
-  {
-    name: 'Pina Colada',
-    ingredients: ["White Rum","Brown Rum", "Pineapple Juice", "Creme of Coconut"],
-    description: 'A tropical rum cocktail',
-  },
-  {
-    name: 'Long Island Icetea',
-    ingredients: ["Rum", "Vodka","Gin","Tripple Sec","Tequila", "Orange Juice", "Cola"],
-    description:
-      'Strong cocktail with different booze and topped with Cola',
-  },
-  {
-    name: 'Gin Tonic',
-    ingredients: ["Gin", "Tonic Water"],
-    description: 'Gin + Tonic. Every combination tastes differently',
-  },
-
-];
+export const GetMockCocktails = (count = 10) =>{ return new Array(count).fill(0).map(() => {
+  return {
+    id: faker.string.uuid(),
+    name: faker.commerce.productName(),
+    description: faker.commerce.productDescription(),
+    ingredients: [faker.animal.cat(), faker.animal.insect()],
+  };
+});
+}

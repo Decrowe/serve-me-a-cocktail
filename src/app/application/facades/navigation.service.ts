@@ -5,10 +5,10 @@ export const enum APP_ROUTES {
   login = 'login',
   orders = 'orders',
   cocktails = 'cocktails',
-  cocktailsEdit = 'cocktails/edit',
+  cocktailsCollection = 'cocktails/collection',
 }
 
-export type appRoute = 'login' | 'orders' | 'cocktails' | 'cocktails/edit';
+export type appRoute = 'login' | 'orders' | 'cocktails' | 'cocktails/collection';
 
 @Injectable({
   providedIn: 'root',

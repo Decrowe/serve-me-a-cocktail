@@ -8,10 +8,10 @@ import { Roles } from '@enteties';
 import { UserService } from '@facades';
 import { map } from 'rxjs';
 
-export const BartenderGuard: CanActivateFn = (
+export const BarkeeperGuard: CanActivateFn = (
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot
 ) => {
   const userService = inject(UserService);
-  return userService.user$.pipe(map((user) => user?.role === Roles.bartender));
+  return userService.user$.pipe(map((user) => user?.role === Roles.barkeeper));
 };

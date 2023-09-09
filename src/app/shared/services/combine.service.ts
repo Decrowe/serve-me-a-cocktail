@@ -38,7 +38,7 @@ export class CombineService {
     if (user === undefined) this._navi.navigate(APP_ROUTES.login);
     else if (user.role === Roles.guest)
       this._navi.navigate(APP_ROUTES.cocktails);
-    else if (user.role === Roles.bartender)
+    else if (user.role === Roles.barkeeper)
       this._navi.navigate(APP_ROUTES.orders);
   }
 

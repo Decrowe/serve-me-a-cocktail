@@ -1,6 +1,6 @@
 export enum Roles {
-    bartender = "Bartender",
+    barkeeper = "Barkeeper",
     guest = "Guest"
 }
 
-export type Role = "Bartender" | "Guest"
+export type Role = "Barkeeper" | "Guest"
