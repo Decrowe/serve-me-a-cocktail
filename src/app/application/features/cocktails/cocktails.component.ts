@@ -1,20 +1,17 @@
 import { CommonModule } from '@angular/common';
-import {
-  Component,
-  OnDestroy,
-  OnInit,
-
-  inject,
-} from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { Cocktail } from 'src/app/shared/enteties';
 import { CartService, CocktailService, UserService } from '@facades';
-import { ButtonComponent, CocktailComponent } from '@components';
+import {
+  ButtonComponent,
+  CartComponent,
+  CocktailComponent,
+  TriggerCocktailListComponent,
+  TriggerFavoritesListComponent,
+} from '@components';
 import { Subject } from 'rxjs';
-import { TriggerCocktailListComponent } from '../trigger-cocktail-list/trigger-cocktail-list.component';
-import { TriggerFavoritesListComponent } from '../trigger-favorite-list/trigger-favorite-list.component';
-import { CartComponent } from '../cart/cart.component';
 
 @Component({
   selector: 'app-cocktails',
@@ -27,7 +24,7 @@ import { CartComponent } from '../cart/cart.component';
     TriggerCocktailListComponent,
     TriggerFavoritesListComponent,
     CartComponent,
-    ButtonComponent
+    ButtonComponent,
   ],
   templateUrl: './cocktails.component.html',
 })
@@ -40,7 +37,6 @@ export class CocktailsComponent implements OnInit, OnDestroy {
 
   public readonly cocktails$ = this._cocktailService.cocktails$;
   public readonly cocktailSource$ = this._cocktailService.cocktailSource$;
-
 
   ngOnInit(): void {
     this._cocktailService.updateCocktails();

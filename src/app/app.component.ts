@@ -1,12 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ScaffoldComponent } from '@components';
+import { HeaderComponent, ScaffoldAppComponent } from '@components';
 import { CombineService } from '@services';
-import { HeaderComponent } from './application/features/header/header.component';
 
 @Component({
   standalone: true,
-  imports: [RouterModule, ScaffoldComponent, HeaderComponent],
+  imports: [RouterModule, ScaffoldAppComponent, HeaderComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
 })

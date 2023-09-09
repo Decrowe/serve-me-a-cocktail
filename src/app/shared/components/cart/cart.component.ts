@@ -10,7 +10,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
 import { CocktailWish } from '@enteties';
 import { map } from 'rxjs';
-import { CartService } from '../../facades/cart.service';
+import { CartService } from '@facades';
 
 @Component({
   selector: 'app-cart',

@@ -2,7 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { APP_ROUTES, NavigationService, OrderService } from '@facades';
+import { NavigationService, OrderService } from '@facades';
 import { Order } from '@enteties';
 import { OrderComponent } from '@components';
 

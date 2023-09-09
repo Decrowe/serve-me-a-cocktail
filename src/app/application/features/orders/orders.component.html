@@ -1,14 +1,12 @@
-<div class="h-full flex flex-col gap-4">
+<div class="h-full flex flex-col justify-between gap-4">
     <div class="text-center text-white text-2xl">Orders</div>
     <div class="w-full flex flex-col-reverse gap-4 overflow-scroll  no-scrollbar items-center grow
     ">
         <app-order *ngFor="let order of orders$ | async" [order]="order" (done)="onOrderDone(order)"
             (rejected)="onOrderRejected(order)"></app-order>
-
     </div>
-    
 
-    <div class="basis-[10%] shrink-0 flex justify-around items-center bg-neutral-lite dark:bg-neutral-dark">
+    <div class="basis-[10%]  shrink-0 flex justify-around items-center bg-neutral-lite dark:bg-neutral-dark">
 
         <div class="flex-1 flex justify-center">
             <button mat-icon-button class="onEditCocktails()">
@@ -18,4 +16,3 @@
     </div>
 
 </div>
-

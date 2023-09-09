@@ -1,0 +1,9 @@
+<div class="flex h-full">
+    <div class="w-[25%] h-full flex "></div>
+    <div class="w-[50%] h-full flex justify-center items-center text-lg dark:text-white">Serve Me A Cocktail</div>
+    <div class="w-[25%] h-full flex justify-center items-center">
+        <button *ngIf="isLoggedIn$ | async" (click)="toggleSidenav()">
+            <i class="fa fa-bars  text-accent-lite dark:text-accent-dark"></i>
+        </button>
+    </div>
+</div>

@@ -4,11 +4,13 @@ import { Router } from '@angular/router';
 export const enum APP_ROUTES {
   login = 'login',
   orders = 'orders',
+  barkeeper = 'barkeeper',
+  guest = 'guest',
   cocktails = 'cocktails',
   cocktailsCollection = 'cocktails/collection',
 }
 
-export type appRoute = 'login' | 'orders' | 'cocktails' | 'cocktails/collection';
+export type appRoute = 'login' | 'orders' | 'cocktails' | 'cocktails/collection' | 'barkeeper' | 'guest';
 
 @Injectable({
   providedIn: 'root',

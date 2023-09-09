@@ -1,0 +1,8 @@
+<div class="h-full flex flex-col relative overflow-hidden">
+    <ng-content class="h-full" select="[content]"></ng-content>
+    <div class="overflow-x-hidden bg-neutral-lite/80 dark:bg-neutral-lite/95 absolute top-0 w-full transition-all h-full "
+        [ngClass]="(isToggled$ | async) ? 'left-0' : 'left-[100%]'">
+
+        <ng-content select="[sidenav]"></ng-content>
+    </div>
+</div>

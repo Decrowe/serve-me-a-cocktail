@@ -1,8 +1,8 @@
-<div class="h-full flex flex-col pt-4">
+<div class="h-full flex flex-col justify-between">
   <div class=" text-center basis-[5%] text-white  text-2xl">{{cocktailSource$ | async}}</div>
  
   <div
-    class="flex flex-col basis-[85%] self-center items-stretch overflow-scroll no-scrollbar p-4 gap-4  ">
+    class="flex flex-col overflow-scroll basis-[85%] self-center items-stretch no-scrollbar p-4 gap-4  ">
     <app-cocktail *ngFor="let cocktail of cocktails$ | async" [cocktail]="cocktail"
       [isFavorized]="isFavorized(cocktail)" (favorized)="onFavorizedToggle(cocktail, $event)"
       (added)="addCocktailToCart(cocktail)"></app-cocktail>
