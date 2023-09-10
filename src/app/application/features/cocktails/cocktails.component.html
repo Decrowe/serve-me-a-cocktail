@@ -1,11 +1,23 @@
-<div class="h-full flex flex-col justify-between">
-  <div class=" text-center basis-[5%] text-white  text-2xl">{{cocktailSource$ | async}}</div>
- 
-  <div
-    class="flex flex-col overflow-scroll basis-[85%] self-center items-stretch no-scrollbar p-4 gap-4  ">
-    <app-cocktail *ngFor="let cocktail of cocktails$ | async" [cocktail]="cocktail"
-      [isFavorized]="isFavorized(cocktail)" (favorized)="onFavorizedToggle(cocktail, $event)"
-      (added)="addCocktailToCart(cocktail)"></app-cocktail>
+<div class="h-full flex flex-col justify-between gap-2">
+  <div class=" text-center basis-[5%] text-white text-2xl">{{cocktailSource$ | async}}</div>
+
+  <div class="flex flex-col overflow-scroll basis-[85%] self-center items-stretch no-scrollbar p-4 gap-4  ">
+    <div *ngFor="let cocktail of cocktails$ | async">
+      <app-cocktail [cocktail]="cocktail"></app-cocktail>
+      <div class="bg-neutral-lite dark:bg-neutral-dark flex justify-center rounded-xl m-1">
+        <button mat-icon-button (click)="onFavorizedToggle(cocktail)">
+          <mat-icon [ngClass]="isFavorized(cocktail) ? 'text-red-500':'dark:text-white'" class="">favorite
+          </mat-icon>
+        </button>
+        <button mat-icon-button (click)="addCocktailToCart(cocktail)">
+          <mat-icon class="dark:text-white">add</mat-icon>
+        </button>
+      </div>
+
+    </div>
+    <div class="flex justify-center gap-4  mx-1 ">
+
+    </div>
   </div>
 
   <div class="flex items-center self-stretch basis-[10%] bg-neutral-lite dark:bg-neutral-dark">

@@ -39,7 +39,7 @@ export class CocktailsComponent implements OnInit, OnDestroy {
   public readonly cocktailSource$ = this._cocktailService.cocktailSource$;
 
   ngOnInit(): void {
-    this._cocktailService.updateCocktails();
+    this._cocktailService.fetchCocktails();
   }
 
   ngOnDestroy(): void {
@@ -55,8 +55,8 @@ export class CocktailsComponent implements OnInit, OnDestroy {
     return this._userService.isFavorized(cocktail);
   }
 
-  public onFavorizedToggle(cocktail: Cocktail, favorized: boolean): void {
-    favorized
+  public onFavorizedToggle(cocktail: Cocktail): void {
+    !this.isFavorized(cocktail)
       ? this.addToFavorites(cocktail)
       : this.removeFromFavorites(cocktail);
   }

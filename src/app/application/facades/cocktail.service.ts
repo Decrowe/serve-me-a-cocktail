@@ -17,10 +17,9 @@ export class CocktailService {
   public readonly cocktailSource$ = this._cocktailSource.asObservable()
 
 
-  public updateCocktails(): void {
+  public fetchCocktails(): void {
     this._cocktailDataService
       .getCocktails()
-      // .pipe(first((value: Array<Cocktail>)=> !!value))
       .subscribe((cocktails) => this._cocktails.next(cocktails));
   }
   public setCocktailSource(source : CockatilSource): void {
@@ -28,7 +27,7 @@ export class CocktailService {
   }
 
   public setCocktails(cocktails?: Array<Cocktail>): void {
-    cocktails? this._cocktails.next(cocktails) : this.updateCocktails()
+    cocktails? this._cocktails.next(cocktails) : this.fetchCocktails()
   }
   
   

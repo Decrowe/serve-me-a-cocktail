@@ -13,6 +13,7 @@ import {
   NavigationService,
   UserService,
 } from '@facades';
+import { SidenavService } from './sidenav.service';
 
 @Injectable({
   providedIn: 'root',
@@ -20,26 +21,32 @@ import {
 export class CombineService {
   private readonly _userService = inject(UserService);
   private readonly _cocktailService = inject(CocktailService);
-  private readonly _navi = inject(NavigationService);
+  private readonly _navigationService = inject(NavigationService);
+private readonly _sidenavService = inject(SidenavService)
 
   constructor() {
+    this.initRoutedListener();
     this.initUserListener();
     this.initCocktailSourceListener();
     this.initFavoritesListener();
   }
 
-  private initUserListener() {
+  private initRoutedListener(): void {
+    this._navigationService.routed$.subscribe(() => this._sidenavService.setSidenav(false))
+  }
+
+  private initUserListener(): void {
     this._userService.user$.subscribe((user: User | undefined) => {
       this.navigate(user);
     });
   }
 
   private navigate(user: User | undefined): void {
-    if (user === undefined) this._navi.navigate(APP_ROUTES.login);
+    if (user === undefined) this._navigationService.navigate(APP_ROUTES.login);
     else if (user.role === Roles.guest)
-      this._navi.navigate(APP_ROUTES.guest);
+      this._navigationService.navigate(APP_ROUTES.guest);
     else if (user.role === Roles.barkeeper)
-      this._navi.navigate(APP_ROUTES.barkeeper);
+      this._navigationService.navigate(APP_ROUTES.barkeeper);
   }
 
   private initCocktailSourceListener() {

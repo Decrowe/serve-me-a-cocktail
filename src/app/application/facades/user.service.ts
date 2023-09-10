@@ -25,8 +25,6 @@ export class UserService {
     return this._user.getValue();
   }
 
-
-
   public login(user: User): void {
     this._user.next(user);
   }

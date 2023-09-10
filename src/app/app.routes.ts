@@ -19,6 +19,12 @@ export const appRoutes: Routes = [
           import('./application').then((m) => m.OrdersComponent),
         canActivate: [LoggedInGuard, BarkeeperGuard],
       },
+      {
+        path: 'collection',
+        loadComponent: () =>
+          import('./application').then((m) => m.CollectionComponent),
+        canActivate: [LoggedInGuard, BarkeeperGuard],
+      },
 
     ],
   },
@@ -40,19 +46,5 @@ export const appRoutes: Routes = [
     ],
   },
   
-  {
-    path: 'cocktails',
-    loadComponent: () =>
-      import('./application').then((m) => m.CocktailsComponent),
-    canActivate: [LoggedInGuard],
-    children: [
-      {
-        path: 'edit',
-        loadComponent: () =>
-          import('./application').then((m) => m.CocktailsComponent),
-        canActivate: [LoggedInGuard, BarkeeperGuard],
-      },
-    ],
-  },
   { path: '**', redirectTo: 'login' },
 ];

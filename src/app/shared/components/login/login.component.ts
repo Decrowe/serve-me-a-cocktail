@@ -36,15 +36,13 @@ export class LoginComponent implements OnDestroy {
   private readonly _userService = inject(UserService);
 
   public readonly usernameControl = new FormControl<string>(isDevMode() ? "DEV" : "");
-  public readonly roleControl = new FormControl<Role>(Roles.guest);
+  public readonly roleControl = new FormControl()
   public readonly roles = Roles;
 
   public readonly loginGroup: FormGroup;
 
   constructor() {
     this.usernameControl.addValidators(Validators.required);
-
-    this.roleControl = new FormControl();
     this.roleControl.addValidators(Validators.required);
 
     this.loginGroup = new FormGroup([this.usernameControl, this.roleControl]);

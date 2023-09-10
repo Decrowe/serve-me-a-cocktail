@@ -12,4 +12,8 @@ export class SidenavService {
   public toggleSidenav(): void {
     this._isSidenavToggled.next(!this._isSidenavToggled.value)
   }
+
+  public setSidenav(state: boolean): void {
+    this._isSidenavToggled.next(state);
+  }
 }
